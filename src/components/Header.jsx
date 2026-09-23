@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Radar, ShieldAlert, Satellite, Radio, Clock, Layers, LogOut, UserCheck } from 'lucide-react';
+import { ShieldAlert, Satellite, Clock, LogOut, Play, Radio, Sparkles } from 'lucide-react';
+import { INCIDENT_PROFILE } from '../data/simulationData';
 
-export default function Header({ onQuickViewChange, currentUser, onLogout }) {
+export default function Header({ onQuickViewChange, currentUser, onLogout, onLaunchDemo }) {
   const [utcTime, setUtcTime] = useState('');
 
   useEffect(() => {
@@ -18,81 +19,106 @@ export default function Header({ onQuickViewChange, currentUser, onLogout }) {
   }, []);
 
   return (
-    <header className="bg-[#070f1e]/90 backdrop-blur-md border-b border-cyan-900/40 sticky top-0 z-40 px-4 lg:px-8 py-3.5 shadow-2xl">
-      <div className="max-w-[1800px] mx-auto flex flex-col xl:flex-row xl:items-center justify-between gap-4">
-        
-        {/* Title & Tagline Branding */}
-        <div className="flex items-start gap-3.5">
-          <div className="p-2.5 rounded-lg bg-gradient-to-br from-cyan-500/20 to-blue-900/40 border border-cyan-500/30 text-cyan-400 shrink-0 mt-0.5 shadow-[0_0_15px_rgba(6,182,212,0.25)]">
-            <Radar className="w-7 h-7 animate-spin-slow" />
+    <header className="bg-[#0b1324]/95 backdrop-blur-md border-b border-slate-800/80 sticky top-0 z-40 px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 shadow-md">
+      <div className="max-w-[1920px] mx-auto flex flex-col md:flex-row md:items-center justify-between gap-3">
+
+        {/* Top-Left Project Logo & Brand Identity */}
+        <div className="flex items-center gap-3 min-w-0">
+          <div className="relative shrink-0 flex items-center justify-center">
+            <img
+              src="/logo.png"
+              alt="Team Neeraksh Official Logo"
+              className="h-10 w-10 sm:h-11 sm:w-11 rounded-full object-contain bg-[#0a1120] border border-sky-900/60 shadow-sm transition-transform hover:scale-105 duration-200"
+            />
           </div>
-          <div>
-            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <h1 className="font-display font-bold text-2xl lg:text-3xl tracking-tight text-white flex items-center gap-2">
-                TIDEMARK
-                <span className="text-xs font-mono px-2 py-0.5 rounded bg-cyan-950/80 text-cyan-400 border border-cyan-800/60 tracking-wider uppercase font-medium">
-                  MISSION CONTROL v2.4
-                </span>
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
+              <h1 className="font-display font-bold text-lg sm:text-xl tracking-tight text-white flex items-center gap-1.5">
+                <span>NEERAKSH</span>
+                <span className="text-slate-500 font-normal text-sm">/</span>
+                <span className="text-sky-400 font-medium text-base sm:text-lg">Tidemark</span>
               </h1>
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-sky-950/80 text-sky-300 border border-sky-800/50 font-medium">
+                Maritime Intelligence
+              </span>
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-rose-950/80 text-rose-300 border border-rose-800/50 font-medium">
+                #{INCIDENT_PROFILE.incidentId}
+              </span>
             </div>
-            
-            <h2 className="text-xs lg:text-sm text-cyan-200/90 font-medium mt-0.5 max-w-4xl leading-snug">
-              Leveraging Satellite Imagery to Determine Oil Spills at Sea along with AIS Data Correlation to Identify the Vessel Responsible
-            </h2>
-            
-            <p className="text-xs text-slate-400 italic font-mono mt-0.5">
-              “From space to sea — detecting the spill, tracking the vessel, protecting our oceans.”
+
+            <p className="text-xs text-slate-300 font-normal truncate hidden sm:block">
+              AI-Powered Marine Oil Spill Detection, Prediction, Source Attribution & Response Platform
             </p>
           </div>
         </div>
 
-        {/* Live Status Indicators & Operational Badges */}
-        <div className="flex flex-wrap items-center gap-3 shrink-0 self-start xl:self-center pt-2 xl:pt-0 border-t xl:border-t-0 border-slate-800/80">
-          
-          {/* Live Clock */}
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#0a1628] border border-slate-700/60 font-mono text-xs text-cyan-300">
-            <Clock className="w-3.5 h-3.5 text-cyan-400" />
+        {/* Center/Right Actions: Demo Mode Button, Telemetry Indicators & Operator Profile */}
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3 shrink-0 self-start md:self-center pt-2 md:pt-0 border-t md:border-t-0 border-slate-800/60 w-full md:w-auto justify-between md:justify-end">
+
+          {/* Hackathon / Interview Mode Button */}
+          {onLaunchDemo && (
+            <button
+              type="button"
+              onClick={onLaunchDemo}
+              className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-sky-600 to-cyan-500 hover:from-sky-500 hover:to-cyan-400 text-slate-950 text-xs font-bold transition-all shadow-md hover:shadow-cyan-500/20 active:scale-95 cursor-pointer ring-1 ring-cyan-300/40"
+              title="Run 9-Stage Automated Demonstration Pipeline"
+            >
+              <Play className="w-3.5 h-3.5 fill-slate-950" />
+              <span>RUN INCIDENT SIMULATION</span>
+            </button>
+          )}
+
+          {/* Live UTC Clock */}
+          <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800 text-xs font-mono text-slate-300">
+            <Clock className="w-3.5 h-3.5 text-sky-400 shrink-0" />
             <span>{utcTime || '07:42:00 UTC'}</span>
           </div>
 
           {/* SAR Pass Ingested Indicator */}
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-emerald-950/40 border border-emerald-800/50 text-emerald-300 text-xs font-mono">
+          <div className="hidden xl:flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-emerald-950/30 border border-emerald-800/40 text-emerald-300 text-xs font-sans">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
             </span>
-            <Satellite className="w-3.5 h-3.5 text-emerald-400" />
-            <span>SAR pass ingested · 07:42 UTC</span>
+            <Satellite className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+            <span className="font-medium">Sentinel-1 SAR · 07:42 UTC</span>
+          </div>
+
+          {/* AIS Feed Status */}
+          <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800 text-xs text-slate-300 font-mono">
+            <Radio className="w-3 h-3 text-cyan-400 animate-pulse" />
+            <span>AIS: 1 Hz</span>
           </div>
 
           {/* Active Incident Warning Badge */}
-          <div 
+          <button
+            type="button"
             onClick={() => onQuickViewChange && onQuickViewChange('dashboard')}
-            className="cursor-pointer flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-red-950/60 border border-red-700/60 text-red-300 text-xs font-medium font-mono hover:bg-red-900/60 transition-all shadow-[0_0_12px_rgba(239,68,68,0.2)]"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-rose-950/40 hover:bg-rose-900/40 border border-rose-800/50 text-rose-300 text-xs font-medium transition-colors cursor-pointer"
           >
-            <ShieldAlert className="w-4 h-4 text-red-400 animate-pulse" />
-            <span>1 active incident</span>
-          </div>
+            <ShieldAlert className="w-3.5 h-3.5 text-rose-400 shrink-0" />
+            <span>Active Spill (#0906)</span>
+          </button>
 
-          {/* Authenticated Operator / Logout Controls */}
-          <div className="flex items-center gap-2.5 pl-2 sm:pl-3 border-l border-slate-800/80">
-            <div className="hidden sm:flex flex-col text-right">
-              <span className="text-[11px] font-mono text-cyan-300 font-semibold flex items-center gap-1.5 justify-end">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>{currentUser?.callsign || 'SIH Commander'}</span>
+          {/* Operator Profile & Logout */}
+          <div className="flex items-center gap-2 pl-2 border-l border-slate-800">
+            <div className="hidden xl:flex flex-col text-right">
+              <span className="text-xs font-medium text-slate-200 flex items-center gap-1 justify-end">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+                {currentUser?.callsign || 'SIH Commander'}
               </span>
-              <span className="text-[9px] font-mono text-slate-400 tracking-tight">
+              <span className="text-[10px] text-slate-400">
                 {currentUser?.clearance || 'Level-4 Clearance'}
               </span>
             </div>
-            
+
             <button
+              type="button"
               onClick={onLogout}
-              title="Lock Workstation & Return to Login Screen"
-              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-slate-900/90 hover:bg-red-950/40 border border-slate-700/80 hover:border-red-500/60 text-slate-300 hover:text-red-300 transition-all text-xs font-mono cursor-pointer shadow-sm group"
+              title="Sign Out / Lock Console"
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-slate-800/70 hover:bg-slate-700/80 border border-slate-700/60 text-slate-200 hover:text-white transition-all text-xs font-medium cursor-pointer shadow-sm"
             >
-              <LogOut className="w-3.5 h-3.5 text-slate-400 group-hover:text-red-400 transition-colors" />
-              <span className="font-medium">Logout</span>
+              <LogOut className="w-3.5 h-3.5 text-slate-400" />
+              <span className="hidden sm:inline">Logout</span>
             </button>
           </div>
 

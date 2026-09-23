@@ -2,9 +2,15 @@
 
 @layer base {
   :root {
-    --font-display: 'Space Grotesk', sans-serif;
-    --font-sans: 'Inter', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
+    --font-display: 'Inter', 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+
+  body {
+    background-color: #0b1120;
+    color: #f1f5f9;
+    font-family: var(--font-sans);
   }
 }
 
@@ -20,54 +26,54 @@
   font-family: var(--font-mono);
 }
 
-/* Custom dark scrollbar */
+/* Custom modern slate scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #070f1e;
+  background: #0b1120;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #1e293b;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0ea5e9;
+  background: #334155;
 }
 
-/* Maritime grid background */
+/* Subtle maritime grid background - soft & non-distracting */
 .bg-maritime-grid {
   background-image: 
-    linear-gradient(to right, rgba(14, 165, 233, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
-  background-size: 32px 32px;
+    linear-gradient(to right, rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+  background-size: 36px 36px;
 }
 
-/* Glassmorphism panel styling */
+/* Professional card styling */
 .glass-panel {
-  background: rgba(10, 20, 38, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(30, 58, 95, 0.6);
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(51, 65, 85, 0.5);
 }
 
 .glass-panel-interactive {
-  background: rgba(10, 20, 38, 0.75);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(30, 58, 95, 0.6);
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(51, 65, 85, 0.5);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-panel-interactive:hover {
-  border-color: rgba(6, 182, 212, 0.5);
-  box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.35);
 }
 
-/* Radar scanner keyframes */
+/* Subtle radar scanner animation */
 @keyframes radar-sweep {
   0% {
     transform: rotate(0deg);
@@ -78,32 +84,30 @@
 }
 
 .animate-radar {
-  animation: radar-sweep 8s linear infinite;
+  animation: radar-sweep 12s linear infinite;
 }
 
-/* Pulsing effect */
-@keyframes pulse-glow {
+/* Soft, natural pulse */
+@keyframes pulse-soft {
   0%, 100% {
-    opacity: 0.4;
-    transform: scale(1);
+    opacity: 0.6;
   }
   50% {
-    opacity: 0.9;
-    transform: scale(1.08);
+    opacity: 1;
   }
 }
 
 .animate-pulse-glow {
-  animation: pulse-glow 3s ease-in-out infinite;
+  animation: pulse-soft 3s ease-in-out infinite;
 }
 
 /* Dynamic range input styling */
 input[type="range"] {
-  accent-color: #06b6d4;
+  accent-color: #0284c7;
 }
 
-/* Slow spin animation for radars */
-@keyframes spin-slow {
+/* Gentle spin animation */
+@keyframes spin-gentle {
   from {
     transform: rotate(0deg);
   }
@@ -113,7 +117,7 @@ input[type="range"] {
 }
 
 .animate-spin-slow {
-  animation: spin-slow 15s linear infinite;
+  animation: spin-gentle 20s linear infinite;
 }
 
 /* Short bounce/shake for security error */
@@ -132,4 +136,3 @@ input[type="range"] {
 .animate-bounce-short {
   animation: bounce-short 0.35s ease-in-out;
 }
-

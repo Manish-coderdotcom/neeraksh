@@ -5,11 +5,9 @@ import {
   Filter, 
   CheckCircle2, 
   AlertTriangle, 
-  ShieldAlert, 
   Anchor, 
   ArrowUpRight,
-  RefreshCw,
-  ExternalLink
+  RefreshCw
 } from 'lucide-react';
 import { VESSELS } from '../../data/mockData';
 
@@ -34,49 +32,49 @@ export default function AisDataView({ onSelectVessel, onNavigate }) {
     <div className="space-y-6">
       
       {/* Title Header */}
-      <div className="bg-gradient-to-r from-[#071328] via-[#0a1b38] to-[#071328] p-5 rounded-xl border border-cyan-900/40 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="bg-[#0f172a] p-5 sm:p-6 rounded-2xl border border-slate-800 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2 mb-1">
-            <Radio className="w-4 h-4 text-cyan-400 animate-pulse" />
-            <span className="text-xs font-mono text-cyan-400 font-bold uppercase tracking-widest">
-              AUTOMATIC IDENTIFICATION SYSTEM (AIS) CORRELATION
+          <div className="flex items-center gap-2 mb-1.5">
+            <Radio className="w-4 h-4 text-sky-400" />
+            <span className="text-xs font-semibold text-sky-400 uppercase tracking-wide">
+              Automatic Identification System (AIS)
             </span>
           </div>
-          <h2 className="text-xl lg:text-2xl font-display font-bold text-white tracking-tight">
-            AIS Telemetry & Vessel Tracking Table
+          <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+            AIS Telemetry & Vessel Tracking
           </h2>
-          <p className="text-xs lg:text-sm text-cyan-200/80 italic font-mono mt-0.5">
-            “Real-time Automatic Identification System feed correlated with SAR satellite passes.”
+          <p className="text-xs sm:text-sm text-slate-300 mt-1">
+            Real-time Automatic Identification System feed correlated with SAR satellite surveillance.
           </p>
         </div>
 
         <div className="flex items-center gap-2">
-          <div className="px-3 py-1.5 rounded-lg bg-emerald-950/60 border border-emerald-800 text-emerald-300 text-xs font-mono flex items-center gap-2">
-            <RefreshCw className="w-3.5 h-3.5 text-emerald-400 animate-spin-slow" />
+          <div className="px-3 py-1.5 rounded-xl bg-emerald-950/40 border border-emerald-800/40 text-emerald-300 text-xs flex items-center gap-2 font-medium">
+            <RefreshCw className="w-3.5 h-3.5 text-emerald-400" />
             <span>AIS Stream Active (1 Hz)</span>
           </div>
         </div>
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="bg-[#071326] p-4 rounded-xl border border-cyan-900/40 shadow-lg flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div className="bg-[#0f172a] p-4 rounded-2xl border border-slate-800 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-3">
         
         {/* Search Input */}
         <div className="relative w-full sm:w-80">
           <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
           <input 
             type="text"
-            placeholder="Search by Vessel Name, MMSI, Type..."
+            placeholder="Search by vessel name, MMSI, or type..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-[#040a17] border border-slate-700/80 rounded-lg pl-9 pr-3 py-2 text-xs font-mono text-slate-100 placeholder-slate-500 focus:outline-none focus:border-cyan-500"
+            className="w-full bg-slate-900 border border-slate-700/80 rounded-xl pl-9 pr-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-colors"
           />
         </div>
 
         {/* Filter Pills */}
         <div className="flex items-center gap-1.5 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0">
-          <span className="text-[11px] font-mono text-slate-400 mr-1 flex items-center gap-1">
-            <Filter className="w-3 h-3 text-cyan-400" /> Filter:
+          <span className="text-xs text-slate-400 mr-1 flex items-center gap-1">
+            <Filter className="w-3.5 h-3.5 text-sky-400" /> Filter:
           </span>
 
           {[
@@ -87,11 +85,12 @@ export default function AisDataView({ onSelectVessel, onNavigate }) {
           ].map(tab => (
             <button
               key={tab.id}
+              type="button"
               onClick={() => setStatusFilter(tab.id)}
-              className={`px-2.5 py-1.5 rounded text-xs font-mono transition-colors whitespace-nowrap ${
+              className={`px-3 py-1.5 rounded-xl text-xs font-medium transition-colors cursor-pointer whitespace-nowrap ${
                 statusFilter === tab.id
-                  ? 'bg-cyan-500 text-slate-950 font-bold'
-                  : 'bg-[#040a17] text-slate-300 hover:bg-slate-800'
+                  ? 'bg-sky-600 text-white shadow-xs'
+                  : 'bg-slate-900 text-slate-300 hover:bg-slate-800'
               }`}
             >
               {tab.label}
@@ -101,22 +100,22 @@ export default function AisDataView({ onSelectVessel, onNavigate }) {
 
       </div>
 
-      {/* PROFESSIONAL VESSEL TRACKING TABLE */}
-      <div className="bg-[#071326] rounded-xl border border-cyan-900/40 overflow-hidden shadow-2xl">
+      {/* Professional Vessel Tracking Table */}
+      <div className="bg-[#0f172a] rounded-2xl border border-slate-800 overflow-hidden shadow-sm">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-[#050c19] text-[11px] font-mono text-cyan-400/90 uppercase tracking-wider border-b border-slate-800">
+              <tr className="bg-slate-900 text-xs text-slate-300 uppercase tracking-wider border-b border-slate-800">
                 <th className="py-3 px-4">Vessel Name & Flag</th>
                 <th className="py-3 px-4">MMSI</th>
                 <th className="py-3 px-4">Type</th>
                 <th className="py-3 px-4">AIS Status</th>
                 <th className="py-3 px-4">Speed</th>
-                <th className="py-3 px-4">Cross-checked via SAR</th>
+                <th className="py-3 px-4">SAR Cross-Check</th>
                 <th className="py-3 px-4 text-right">Attribution</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/80 font-mono text-xs text-slate-200">
+            <tbody className="divide-y divide-slate-800 text-xs text-slate-200">
               {filteredVessels.map((vessel) => {
                 const isSelected = selectedVessel.id === vessel.id;
                 
@@ -126,25 +125,25 @@ export default function AisDataView({ onSelectVessel, onNavigate }) {
                     onClick={() => setSelectedVessel(vessel)}
                     className={`cursor-pointer transition-colors ${
                       isSelected 
-                        ? 'bg-[#0d1e38] border-l-4 border-l-cyan-400' 
-                        : 'hover:bg-[#0a182d]'
+                        ? 'bg-sky-950/40 border-l-4 border-l-sky-400' 
+                        : 'hover:bg-slate-900/60'
                     }`}
                   >
                     {/* Vessel Name */}
                     <td className="py-3.5 px-4">
                       <div className="flex items-center gap-2.5">
-                        <Anchor className={`w-4 h-4 ${vessel.id === 'solara' ? 'text-red-400' : 'text-cyan-400'}`} />
+                        <Anchor className={`w-4 h-4 ${vessel.id === 'solara' ? 'text-rose-400' : 'text-sky-400'}`} />
                         <div>
-                          <span className="font-sans font-bold text-sm text-white block">
+                          <span className="font-semibold text-sm text-white block">
                             {vessel.name}
                           </span>
-                          <span className="text-[10px] text-slate-400">{vessel.flag}</span>
+                          <span className="text-[11px] text-slate-400">{vessel.flag}</span>
                         </div>
                       </div>
                     </td>
 
                     {/* MMSI */}
-                    <td className="py-3.5 px-4 font-semibold text-cyan-300">
+                    <td className="py-3.5 px-4 font-mono font-medium text-sky-300">
                       {vessel.mmsi}
                     </td>
 
@@ -155,16 +154,16 @@ export default function AisDataView({ onSelectVessel, onNavigate }) {
 
                     {/* AIS Status Badge */}
                     <td className="py-3.5 px-4">
-                      <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-[11px] font-semibold ${
-                        vessel.statusBadge === 'red' ? 'bg-red-950 text-red-300 border border-red-800/80' :
-                        vessel.statusBadge === 'amber' ? 'bg-amber-950 text-amber-300 border border-amber-800/80' :
-                        vessel.statusBadge === 'blue' ? 'bg-blue-950 text-blue-300 border border-blue-800/80' :
-                        'bg-emerald-950 text-emerald-300 border border-emerald-800/80'
+                      <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-medium ${
+                        vessel.statusBadge === 'red' ? 'bg-rose-950/80 text-rose-300 border border-rose-800/40' :
+                        vessel.statusBadge === 'amber' ? 'bg-amber-950/80 text-amber-300 border border-amber-800/40' :
+                        vessel.statusBadge === 'blue' ? 'bg-sky-950/80 text-sky-300 border border-sky-800/40' :
+                        'bg-emerald-950/80 text-emerald-300 border border-emerald-800/40'
                       }`}>
-                        <span className={`w-2 h-2 rounded-full ${
-                          vessel.statusBadge === 'red' ? 'bg-red-500 animate-ping' :
+                        <span className={`w-1.5 h-1.5 rounded-full ${
+                          vessel.statusBadge === 'red' ? 'bg-rose-500' :
                           vessel.statusBadge === 'amber' ? 'bg-amber-500' :
-                          vessel.statusBadge === 'blue' ? 'bg-blue-400' :
+                          vessel.statusBadge === 'blue' ? 'bg-sky-400' :
                           'bg-emerald-400'
                         }`}></span>
                         {vessel.status}
@@ -172,36 +171,36 @@ export default function AisDataView({ onSelectVessel, onNavigate }) {
                     </td>
 
                     {/* Speed */}
-                    <td className="py-3.5 px-4 font-bold text-white">
+                    <td className="py-3.5 px-4 font-medium text-white">
                       {vessel.speed}
                       {vessel.id === 'solara' && (
-                        <span className="text-[10px] text-red-400 block font-normal">+6.2kt anomaly</span>
+                        <span className="text-[10px] text-rose-400 block font-normal">+6.2 kt anomaly</span>
                       )}
                     </td>
 
                     {/* Cross-checked via SAR */}
                     <td className="py-3.5 px-4">
                       {vessel.sarMatch === 'SAR hull match' ? (
-                        <span className="text-red-400 font-bold flex items-center gap-1">
-                          <AlertTriangle className="w-3.5 h-3.5 text-red-500" />
-                          SAR hull match
+                        <span className="text-rose-400 font-medium flex items-center gap-1">
+                          <AlertTriangle className="w-3.5 h-3.5 text-rose-500" />
+                          SAR Hull Match
                         </span>
                       ) : vessel.sarMatch === 'Authorized responder' ? (
-                        <span className="text-blue-300 font-bold flex items-center gap-1">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-blue-400" />
+                        <span className="text-sky-300 font-medium flex items-center gap-1">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-sky-400" />
                           Responder
                         </span>
                       ) : (
-                        <span className="text-slate-400 text-[11px]">Active track</span>
+                        <span className="text-slate-400 text-xs">Active Track</span>
                       )}
                     </td>
 
                     {/* Attribution Score */}
                     <td className="py-3.5 px-4 text-right">
-                      <span className={`text-sm font-bold font-display px-2 py-0.5 rounded ${
-                        vessel.attributionScore >= 80 ? 'text-red-400 bg-red-950/80 border border-red-800' :
+                      <span className={`text-xs font-bold px-2.5 py-1 rounded-md ${
+                        vessel.attributionScore >= 80 ? 'text-rose-400 bg-rose-950/80 border border-rose-800/60' :
                         vessel.attributionScore >= 30 ? 'text-amber-300 bg-amber-950/80' :
-                        'text-emerald-400'
+                        'text-emerald-400 bg-emerald-950/80'
                       }`}>
                         {vessel.attributionScore}/100
                       </span>
@@ -214,47 +213,48 @@ export default function AisDataView({ onSelectVessel, onNavigate }) {
         </div>
       </div>
 
-      {/* SELECTED VESSEL DETAILED INSPECTOR PANEL */}
+      {/* Selected Vessel Detailed Inspector Panel */}
       {selectedVessel && (
-        <div className="bg-gradient-to-br from-[#09162c] to-[#060e1d] p-5 rounded-xl border border-cyan-800/60 shadow-xl">
+        <div className="bg-[#0f172a] p-5 sm:p-6 rounded-2xl border border-slate-800 shadow-sm">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-800">
             <div>
-              <span className="text-[10px] font-mono text-cyan-400 uppercase font-bold tracking-wider">
-                INSPECTING VESSEL TELEMETRY
+              <span className="text-xs uppercase tracking-wider text-sky-400 font-semibold">
+                Inspecting Vessel Telemetry
               </span>
-              <h3 className="text-xl font-display font-bold text-white">
+              <h3 className="text-xl font-bold text-white mt-0.5">
                 {selectedVessel.name} ({selectedVessel.type})
               </h3>
-              <p className="text-xs font-mono text-slate-400 mt-0.5">
-                MMSI: <span className="text-cyan-300">{selectedVessel.mmsi}</span> · IMO: <span className="text-slate-200">{selectedVessel.imo}</span> · Callsign: <span className="text-slate-200">{selectedVessel.callsign}</span>
+              <p className="text-xs text-slate-400 mt-0.5">
+                MMSI: <span className="text-sky-300 font-mono">{selectedVessel.mmsi}</span> · IMO: <span className="text-slate-200 font-mono">{selectedVessel.imo}</span> · Callsign: <span className="text-slate-200 font-mono">{selectedVessel.callsign}</span>
               </p>
             </div>
 
             <div className="flex items-center gap-3">
               <button 
+                type="button"
                 onClick={() => {
                   if (onSelectVessel) onSelectVessel(selectedVessel.id);
                   if (onNavigate) onNavigate('analysis');
                 }}
-                className="px-4 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-mono text-xs font-bold transition-all shadow-md flex items-center gap-1.5"
+                className="px-4 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-medium transition-colors shadow-xs flex items-center gap-1.5 cursor-pointer"
               >
-                <span>OPEN ATTRIBUTION ANALYSIS</span>
+                <span>Open Attribution Analysis</span>
                 <ArrowUpRight className="w-4 h-4" />
               </button>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs font-mono">
-            <div className="bg-[#050c19] p-3.5 rounded-lg border border-slate-800">
-              <span className="text-slate-400 block text-[10px] uppercase">AIS Transponder Anomaly Log:</span>
-              <p className="text-slate-200 mt-1 leading-relaxed">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs">
+            <div className="bg-slate-900/80 p-4 rounded-xl border border-slate-800">
+              <span className="text-slate-400 block text-[11px] font-medium uppercase mb-1">AIS Transponder Anomaly Log:</span>
+              <p className="text-slate-200 leading-relaxed">
                 {selectedVessel.aisGapDetails}
               </p>
             </div>
 
-            <div className="bg-[#050c19] p-3.5 rounded-lg border border-slate-800">
-              <span className="text-slate-400 block text-[10px] uppercase">Summary Narrative:</span>
-              <p className="text-slate-200 mt-1 leading-relaxed">
+            <div className="bg-slate-900/80 p-4 rounded-xl border border-slate-800">
+              <span className="text-slate-400 block text-[11px] font-medium uppercase mb-1">Summary Narrative:</span>
+              <p className="text-slate-200 leading-relaxed">
                 {selectedVessel.anomalySummary}
               </p>
             </div>

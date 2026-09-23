@@ -1,19 +1,10 @@
 import React from 'react';
 import { 
   Network, 
-  Satellite, 
-  Download, 
-  Sliders, 
-  Cpu, 
-  CheckCircle, 
-  Radio, 
-  Compass, 
-  Target, 
-  FileText,
-  ChevronRight,
-  Sparkles,
-  ShieldCheck,
-  Server
+  ChevronRight, 
+  Sparkles, 
+  ShieldCheck, 
+  Server 
 } from 'lucide-react';
 import { ARCHITECTURE_STEPS, ARCH_TECH_STACK, ADVANCED_FEATURES } from '../../data/mockData';
 
@@ -22,102 +13,102 @@ export default function ArchitectureView() {
     <div className="space-y-6">
       
       {/* Title Header */}
-      <div className="bg-gradient-to-r from-[#071328] via-[#0a1b38] to-[#071328] p-5 rounded-xl border border-cyan-900/40 shadow-xl">
-        <div className="flex items-center gap-2 mb-1">
-          <Network className="w-4 h-4 text-cyan-400" />
-          <span className="text-xs font-mono text-cyan-400 font-bold uppercase tracking-widest">
-            END-TO-END TECHNICAL PIPELINE & DATA INFRASTRUCTURE
+      <div className="bg-[#0f172a] p-5 sm:p-6 rounded-2xl border border-slate-800 shadow-sm">
+        <div className="flex items-center gap-2 mb-1.5">
+          <Network className="w-4 h-4 text-sky-400" />
+          <span className="text-xs font-semibold text-sky-400 uppercase tracking-wide">
+            System Pipeline & Infrastructure
           </span>
         </div>
-        <h2 className="text-xl lg:text-2xl font-display font-bold text-white tracking-tight">
-          System Architecture & Flow Diagram
+        <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+          System Architecture & Data Flow
         </h2>
-        <p className="text-xs lg:text-sm text-cyan-200/80 italic font-mono mt-0.5">
-          “Multi-stage stream processing from raw orbital radar backscatter to court-admissible evidence.”
+        <p className="text-xs sm:text-sm text-slate-300 mt-1">
+          Multi-stage pipeline connecting satellite radar downlinks with terrestrial AIS vessel feeds.
         </p>
       </div>
 
-      {/* VISUAL PIPELINE DIAGRAM SECTION */}
-      <div className="bg-[#071326] rounded-xl border border-cyan-900/40 p-6 shadow-2xl space-y-4">
+      {/* Visual Pipeline Diagram Section */}
+      <div className="bg-[#0f172a] rounded-2xl border border-slate-800 p-5 sm:p-6 shadow-sm space-y-4">
         
         <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-          <span className="text-xs font-mono text-cyan-400 uppercase font-bold tracking-wider flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-            Sequential Ingestion & Attribution Pipeline
+          <span className="text-xs text-sky-400 uppercase font-semibold tracking-wider flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-sky-400"></span>
+            Sequential Processing Pipeline
           </span>
-          <span className="text-[10px] font-mono text-slate-400">9 Connected Core Nodes</span>
+          <span className="text-xs text-slate-400 font-mono">9 Sequential Stages</span>
         </div>
 
-        {/* 9 Stage Flow Diagram (Horizontal / Vertical Responsive Flow) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-9 gap-2.5 pt-2">
+        {/* 9 Stage Flow Diagram */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-9 gap-2.5 pt-1">
           {ARCHITECTURE_STEPS.map((step, idx) => (
             <div 
               key={step.step}
-              className="bg-[#040b17] p-3 rounded-lg border border-cyan-900/60 hover:border-cyan-400 flex flex-col justify-between transition-all duration-200 group"
+              className="bg-slate-900/80 p-3.5 rounded-xl border border-slate-800 hover:border-slate-700 flex flex-col justify-between transition-colors group"
             >
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] font-mono font-bold text-cyan-400 bg-cyan-950 px-1.5 py-0.5 rounded border border-cyan-800/50">
+                  <span className="text-[10px] font-mono font-semibold text-sky-400 bg-sky-950/80 px-2 py-0.5 rounded-md border border-sky-800/40">
                     {step.step}
                   </span>
                   {idx < ARCHITECTURE_STEPS.length - 1 && (
-                    <ChevronRight className="w-3 h-3 text-slate-600 group-hover:text-cyan-400 hidden lg:block" />
+                    <ChevronRight className="w-3.5 h-3.5 text-slate-600 group-hover:text-slate-400 hidden lg:block" />
                   )}
                 </div>
 
-                <h4 className="text-xs font-display font-bold text-white mb-1 group-hover:text-cyan-200">
+                <h4 className="text-xs font-semibold text-white mb-1">
                   {step.name}
                 </h4>
-                <p className="text-[10px] font-mono text-slate-400 leading-snug">
+                <p className="text-[11px] text-slate-400 leading-snug">
                   {step.desc}
                 </p>
               </div>
 
-              <div className="mt-3 pt-1 border-t border-slate-800/60 h-0.5 bg-slate-800 group-hover:bg-cyan-400 transition-colors" />
+              <div className="mt-3 pt-1 border-t border-slate-800/60 h-0.5 bg-transparent group-hover:bg-sky-500 rounded-full transition-colors" />
             </div>
           ))}
         </div>
 
       </div>
 
-      {/* TECHNOLOGY STACK CARDS */}
+      {/* Technology Stack Cards */}
       <div className="space-y-3">
-        <h3 className="text-sm font-mono text-cyan-400 uppercase font-bold tracking-wider flex items-center gap-2">
-          <Server className="w-4 h-4 text-cyan-400" />
-          Production Technology Stack & Frameworks
+        <h3 className="text-xs font-semibold text-sky-400 uppercase tracking-wider flex items-center gap-2">
+          <Server className="w-4 h-4 text-sky-400" />
+          Core Technologies & Libraries
         </h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           {ARCH_TECH_STACK.map((tech, idx) => (
             <div 
               key={idx}
-              className="bg-[#071326] p-4 rounded-xl border border-cyan-900/40 hover:border-cyan-500/60 transition-all shadow-lg flex flex-col justify-between"
+              className="bg-[#0f172a] p-5 rounded-2xl border border-slate-800 hover:border-slate-700 transition-colors shadow-sm flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-2">
-                  <span className="text-[10px] font-mono text-slate-400 uppercase">{tech.category}</span>
-                  <span className="text-[9px] font-mono font-bold px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800/60">
+                  <span className="text-[11px] text-slate-400 uppercase">{tech.category}</span>
+                  <span className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-sky-950 text-sky-300 border border-sky-800/50">
                     {tech.badge}
                   </span>
                 </div>
-                <h4 className="text-sm font-display font-bold text-white mb-1">{tech.name}</h4>
-                <p className="text-xs font-mono text-slate-400">{tech.desc}</p>
+                <h4 className="text-sm font-semibold text-white mb-1">{tech.name}</h4>
+                <p className="text-xs text-slate-400 leading-relaxed">{tech.desc}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* ADVANCED FEATURES GRID */}
-      <div className="bg-gradient-to-br from-[#08172e] via-[#061224] to-[#040c19] p-6 rounded-xl border border-cyan-900/50 shadow-2xl space-y-4">
+      {/* Advanced Features Grid */}
+      <div className="bg-[#0f172a] p-5 sm:p-6 rounded-2xl border border-slate-800 shadow-sm space-y-4">
         
         <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-          <h3 className="text-base font-display font-bold text-white flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-cyan-400" />
-            Advanced System Features & Capabilities
+          <h3 className="text-base font-semibold text-white flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-sky-400" />
+            Key Platform Capabilities
           </h3>
-          <span className="text-xs font-mono text-cyan-400 bg-cyan-950 px-2.5 py-1 rounded border border-cyan-800">
-            ENTERPRISE GRADE
+          <span className="text-xs text-sky-300 bg-sky-950/80 px-2.5 py-1 rounded-lg border border-sky-800/50 font-medium">
+            Production Ready
           </span>
         </div>
 
@@ -125,13 +116,13 @@ export default function ArchitectureView() {
           {ADVANCED_FEATURES.map((feat, idx) => (
             <div 
               key={idx}
-              className="bg-[#050c18] p-4 rounded-lg border border-slate-800/80 hover:border-cyan-700/50 transition-all space-y-1.5"
+              className="bg-slate-900/80 p-4 rounded-xl border border-slate-800 hover:border-slate-750 transition-colors space-y-1.5"
             >
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-cyan-400 shrink-0" />
-                <h4 className="font-display font-bold text-xs text-white">{feat.title}</h4>
+                <ShieldCheck className="w-4 h-4 text-sky-400 shrink-0" />
+                <h4 className="font-semibold text-xs text-white">{feat.title}</h4>
               </div>
-              <p className="text-xs font-mono text-slate-400 leading-relaxed">
+              <p className="text-xs text-slate-400 leading-relaxed">
                 {feat.desc}
               </p>
             </div>

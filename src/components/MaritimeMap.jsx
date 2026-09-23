@@ -47,41 +47,41 @@ export default function MaritimeMap({
   const selectedVessel = VESSELS.find(v => v.id === selectedVesselId) || VESSELS[0];
 
   return (
-    <div className="relative rounded-xl border border-cyan-900/50 bg-[#040b17] overflow-hidden shadow-2xl group">
+    <div className="relative rounded-2xl border border-slate-800 bg-[#070f1e] overflow-hidden shadow-md group">
       
       {/* Top Map Toolbar */}
       <div className="absolute top-3 left-3 right-3 z-20 flex flex-wrap items-center justify-between gap-2 pointer-events-none">
         
         {/* Left Status & Coordinate info */}
-        <div className="pointer-events-auto flex items-center gap-2 bg-[#061224]/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-cyan-900/50 text-xs font-mono text-cyan-300 shadow-lg">
-          <Compass className="w-4 h-4 text-cyan-400 animate-spin-slow" />
-          <span>NORWEGIAN SEA · SECTOR 4B</span>
+        <div className="pointer-events-auto flex items-center gap-2 bg-[#0f172a]/95 backdrop-blur-md px-3 py-1.5 rounded-xl border border-slate-700/80 text-xs font-sans text-slate-200 shadow-md">
+          <Compass className="w-4 h-4 text-sky-400 shrink-0" />
+          <span className="font-medium">Norwegian Sea · Sector 4B</span>
           <span className="text-slate-500">|</span>
-          <span className="text-white font-semibold">{INCIDENT_DATA.location}</span>
+          <span className="text-sky-300 font-mono text-xs">{INCIDENT_DATA.location}</span>
         </div>
 
         {/* Right Layer Controls Dropdown / Controls */}
-        <div className="pointer-events-auto flex items-center gap-2 bg-[#061224]/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-cyan-900/50 text-xs font-mono text-slate-200 shadow-lg">
-          <Layers className="w-3.5 h-3.5 text-cyan-400 mr-1" />
+        <div className="pointer-events-auto flex flex-wrap items-center gap-2.5 bg-[#0f172a]/95 backdrop-blur-md px-3 py-1.5 rounded-xl border border-slate-700/80 text-xs font-sans text-slate-300 shadow-md">
+          <Layers className="w-3.5 h-3.5 text-sky-400 mr-0.5 shrink-0" />
           
-          <label className="flex items-center gap-1.5 cursor-pointer hover:text-cyan-300 transition-colors">
+          <label className="flex items-center gap-1.5 cursor-pointer hover:text-white transition-colors">
             <input 
               type="checkbox" 
               checked={layers.sarBackscatter} 
               onChange={() => toggleLayer('sarBackscatter')}
-              className="rounded accent-cyan-500 w-3.5 h-3.5"
+              className="rounded accent-sky-500 w-3.5 h-3.5"
             />
             <span>SAR backscatter</span>
           </label>
 
           <span className="text-slate-600">|</span>
 
-          <label className="flex items-center gap-1.5 cursor-pointer hover:text-cyan-300 transition-colors">
+          <label className="flex items-center gap-1.5 cursor-pointer hover:text-white transition-colors">
             <input 
               type="checkbox" 
               checked={layers.aisTracks} 
               onChange={() => toggleLayer('aisTracks')}
-              className="rounded accent-cyan-500 w-3.5 h-3.5"
+              className="rounded accent-sky-500 w-3.5 h-3.5"
             />
             <span>AIS tracks</span>
           </label>
@@ -414,32 +414,32 @@ export default function MaritimeMap({
       </div>
 
       {/* Bottom Map Legend Bar */}
-      <div className="bg-[#050f1f] border-t border-slate-800/80 px-4 py-2.5 flex flex-wrap items-center justify-between text-xs font-mono text-slate-300 gap-3">
+      <div className="bg-[#0f172a] border-t border-slate-800 px-4 py-2.5 flex flex-wrap items-center justify-between text-xs text-slate-300 gap-3">
         
         {/* Attribution Legend */}
         <div className="flex flex-wrap items-center gap-4">
-          <span className="text-slate-400 font-semibold text-[11px] uppercase tracking-wider">
+          <span className="text-slate-400 font-medium text-xs uppercase tracking-wider">
             Attribution Confidence:
           </span>
           <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-red-500 shadow-[0_0_8px_#ef4444]"></span>
-            <span>Red = High (MV Solara: 91/100)</span>
+            <span className="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+            <span>High (MV Solara: 91/100)</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-amber-500 shadow-[0_0_8px_#f59e0b]"></span>
-            <span>Amber = Medium</span>
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+            <span>Medium (20-40)</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981]"></span>
-            <span>Green = Low</span>
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+            <span>Low (&lt;20)</span>
           </div>
         </div>
 
         {/* Selected Vessel Quick Indicator */}
-        <div className="flex items-center gap-2 bg-[#091830] px-2.5 py-1 rounded border border-cyan-800/50">
-          <span className="text-slate-400 text-[11px]">Selected:</span>
-          <span className="text-cyan-300 font-bold">{selectedVessel.name}</span>
-          <span className="text-slate-500">({selectedVessel.type})</span>
+        <div className="flex items-center gap-2 bg-slate-900 px-3 py-1 rounded-lg border border-slate-800">
+          <span className="text-slate-400 text-xs">Selected:</span>
+          <span className="text-sky-300 font-semibold">{selectedVessel.name}</span>
+          <span className="text-slate-400 text-[11px]">({selectedVessel.type})</span>
         </div>
 
       </div>

@@ -1,0 +1,54 @@
+[
+  {
+    "id": "coral_bioherm_4",
+    "name": "Lophelia Coral Bioherm #4",
+    "type": "Cold-Water Coral Reef (220m depth)",
+    "category": "CORAL_REEF",
+    "coordinates": { "lat": 61.72, "lng": 4.78 },
+    "threatLevel": "CRITICAL",
+    "riskColor": "#ef4444",
+    "etaHours": 28,
+    "areaKm2": 32.5,
+    "description": "Centuries-old Lophelia pertusa cold-water skeletal reefs. Heavy hydrocarbon sedimentation threatens complete polyps asphyxiation.",
+    "countermeasure": "Subsea deflection bubble curtains; 5 NM exclusion buffer for toxic chemical dispersants."
+  },
+  {
+    "id": "herring_spawning_12",
+    "name": "Herring Spawning Ground #12",
+    "type": "Pelagic Commercial Spawning Reserve",
+    "category": "FISHERY",
+    "coordinates": { "lat": 61.58, "lng": 4.52 },
+    "threatLevel": "CRITICAL",
+    "riskColor": "#ef4444",
+    "etaHours": 14,
+    "areaKm2": 78.0,
+    "description": "Critical spring spawning clutches for North Sea herring stock. High embryonic cardiac deformity risk; $18.4M catch value at risk.",
+    "countermeasure": "Issue emergency trawler exclusion notices and acoustic fish diversion deterrents."
+  },
+  {
+    "id": "vestland_reserve",
+    "name": "Vestland Coastal Nature Reserve",
+    "type": "Marine Protected Area (MPA) / Seabird Colonies",
+    "category": "PROTECTED_AREA",
+    "coordinates": { "lat": 61.92, "lng": 5.10 },
+    "threatLevel": "HIGH",
+    "riskColor": "#f97316",
+    "etaHours": 50,
+    "areaKm2": 115.0,
+    "description": "Ramsar wetland sanctuary hosting 45,000 breeding pairs of Atlantic Puffin and Black-legged Kittiwake.",
+    "countermeasure": "Pre-stage 2,400m coastal deflection booms across Outer Fedje and Florø entrances."
+  },
+  {
+    "id": "sognefjord_aquaculture",
+    "name": "Sognefjord Outer Aquaculture Zone",
+    "type": "Salmonid Sea-Cage Facilities",
+    "category": "AQUACULTURE",
+    "coordinates": { "lat": 61.12, "lng": 5.05 },
+    "threatLevel": "MODERATE",
+    "riskColor": "#eab308",
+    "etaHours": 64,
+    "areaKm2": 42.0,
+    "description": "Atlantic salmon smolt and harvest cages. Surface sheen ingestion causes acute gill necrosis and market condemnation.",
+    "countermeasure": "Activate pneumatic bubble barricades and deep-skirt containment curtains at fjord bottleneck."
+  }
+]

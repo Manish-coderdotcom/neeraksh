@@ -1,0 +1,97 @@
+{
+  "wind": {
+    "speedKnots": 18.0,
+    "headingDeg": 45,
+    "headingCardinal": "NE",
+    "source": "ECMWF High-Resolution Forecast",
+    "gustKnots": 22.5,
+    "description": "18 knots → NE"
+  },
+  "current": {
+    "speedKnots": 1.8,
+    "headingDeg": 225,
+    "headingCardinal": "SW",
+    "source": "Copernicus Marine Hydrodynamic Service",
+    "tidalOscillationKnots": 0.4,
+    "description": "1.8 knots → SW"
+  },
+  "waves": {
+    "significantHeightMeters": 1.4,
+    "peakPeriodSeconds": 6.8,
+    "directionCardinal": "NE",
+    "description": "1.4 m"
+  },
+  "sea": {
+    "surfaceTemperatureC": 11.4,
+    "salinityPsu": 34.8,
+    "bathymetryDepthMeters": 285,
+    "description": "11°C"
+  },
+  "atmosphere": {
+    "pressureHpa": 1012.4,
+    "visibilityKm": 18.0,
+    "cloudCoverPercent": 88.4
+  },
+  "horizonConditions": {
+    "0H": {
+      "windSpeed": 18.0,
+      "windHeading": 45,
+      "windDirection": "NE",
+      "currentSpeed": 1.8,
+      "currentHeading": 225,
+      "currentDirection": "SW",
+      "waveHeight": 1.4,
+      "seaTemp": 11.4
+    },
+    "6H": {
+      "windSpeed": 19.5,
+      "windHeading": 48,
+      "windDirection": "NE",
+      "currentSpeed": 1.75,
+      "currentHeading": 228,
+      "currentDirection": "SW",
+      "waveHeight": 1.5,
+      "seaTemp": 11.3
+    },
+    "12H": {
+      "windSpeed": 21.0,
+      "windHeading": 52,
+      "windDirection": "ENE",
+      "currentSpeed": 1.7,
+      "currentHeading": 230,
+      "currentDirection": "SW",
+      "waveHeight": 1.7,
+      "seaTemp": 11.2
+    },
+    "24H": {
+      "windSpeed": 22.8,
+      "windHeading": 55,
+      "windDirection": "ENE",
+      "currentSpeed": 1.62,
+      "currentHeading": 232,
+      "currentDirection": "WSW",
+      "waveHeight": 1.9,
+      "seaTemp": 11.1
+    },
+    "48H": {
+      "windSpeed": 17.2,
+      "windHeading": 62,
+      "windDirection": "ENE",
+      "currentSpeed": 1.45,
+      "currentHeading": 238,
+      "currentDirection": "WSW",
+      "waveHeight": 1.6,
+      "seaTemp": 10.9
+    },
+    "72H": {
+      "windSpeed": 15.0,
+      "windHeading": 70,
+      "windDirection": "E",
+      "currentSpeed": 1.35,
+      "currentHeading": 242,
+      "currentDirection": "WSW",
+      "waveHeight": 1.3,
+      "seaTemp": 10.8
+    }
+  }
+}

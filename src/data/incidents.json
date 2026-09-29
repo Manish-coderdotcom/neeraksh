@@ -1,0 +1,36 @@
+[
+  {
+    "id": "INC-2026-0906",
+    "officialCode": "IMO-NOR-2026-0906-S4B",
+    "name": "North Sea Sector 4B Hydrocarbon Discharge",
+    "region": "Norwegian Economic Exclusive Zone (Offshore Vestland)",
+    "coordinates": {
+      "lat": 61.42,
+      "lng": 4.18
+    },
+    "locationFormatted": "61.4200° N, 04.1800° E",
+    "detectionTime": "2026-09-06 07:42:11 UTC",
+    "estimatedOnset": "2026-09-06 05:42:00 UTC",
+    "confidence": "94%",
+    "confidenceScore": 94,
+    "oilType": "Crude Oil (Heavy Crude)",
+    "apiGravity": "19.4° API",
+    "viscosity": "Medium (185 cSt @ 15°C)",
+    "baseAreaKm2": 14.8,
+    "currentAreaKm2": 14.8,
+    "estimatedVolume": "550 bbl (87.4 m³)",
+    "volumeBarrelsRange": "450 - 680 bbl",
+    "sarSatellite": "Sentinel-1A C-band SAR",
+    "sarPassId": "S1A_IW_GRDH_1SDV_20260906T074211",
+    "opticalSatellite": "Sentinel-2B MSI (88.4% Cloud-Impaired)",
+    "seaState": "State 3 (Moderate swell, 1.4m wave height)",
+    "seaTemperature": "11.4 °C",
+    "driftVelocity": "1.62 knots @ 048° NE",
+    "shorelineDistanceNM": 38.4,
+    "environmentalRisk": "CRITICAL (Lophelia Coral Bioherm & Herring Spawning Ground)",
+    "predictionConfidence": "96%",
+    "status": "ACTIVE INVESTIGATION",
+    "sarDampingDb": -11.4,
+    "primaryAttributedVesselId": "solara"
+  }
+]
